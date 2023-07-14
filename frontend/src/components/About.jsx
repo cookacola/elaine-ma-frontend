@@ -21,21 +21,21 @@ async function getHomeAboutData() {
 const About = async ({ isHome }) => {
 	const aboutData = await getHomeAboutData();
 	return (
-		<div className="container relative flex flex-col px-8 py-4 mx-auto my-24 md:flex-row md:gap-10">
-			<div className="flex flex-col justify-center bioSection">
+		<div className="container relative flex flex-col items-center justify-center px-8 py-4 mx-auto my-24 md:flex-row md:gap-10">
+			<div className="flex flex-col justify-center w-1/2 bioSection">
 				<h2 className="mb-4 text-2xl font-bold">{aboutData.title}</h2>
 				<p className="mb-4 text-base font-normal text-gray-100">
 					{aboutData.bio}
 				</p>
 				{isHome ? <Link href="/about">More</Link> : null}
 			</div>
-			<div className="relative flex items-center justify-center order-first p-4 md:order-last">
+			<div className="relative flex items-center justify-center order-first w-1/2 p-4 md:order-last">
 				<Image
-					src={`http://127.0.0.1:1337${aboutData.profilePic.attributes.url}`}
-					alt={`http://127.0.0.1:1337${aboutData.profilePic.attributes.name}`}
-					layout="responsive"
-					width={500} // Set this to your desired width
-					height={300} // Set this to your desired height
+					src={`${aboutData.profilePic.attributes.url}`}
+					alt={`${aboutData.profilePic.attributes.name}`}
+					width={aboutData.profilePic.attributes.width}
+					height={aboutData.profilePic.attributes.height}
+					className="object-cover w-full h-full"
 				/>
 			</div>
 		</div>

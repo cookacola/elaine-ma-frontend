@@ -66,7 +66,7 @@ export default function Slideshow() {
 			const images = imageProps.map((imageProp) => (
 				<img
 					key={imageProp.id}
-					src={`http://127.0.0.1:1337${imageProp.url}`}
+					src={`${imageProp.url}`}
 					alt={imageProp.title}
 					style={{
 						width: "100%",
@@ -85,7 +85,7 @@ export default function Slideshow() {
 		<div className="mx-auto">
 			<div className="relative">
 				{transitions((springs, item) => (
-					<animated.div className="imgContainer max-h-screen" style={springs}>
+					<animated.div className="max-h-screen imgContainer" style={springs}>
 						{slideshowImages[item]}
 					</animated.div>
 				))}

@@ -32,7 +32,6 @@
       "type": "dynamiczone",
       "components": [
         "layout.newsletter-form",
-        "layout.mission",
         "layout.contact-me",
         "layout.experience",
         "layout.about-me"

@@ -9,6 +9,7 @@ const nextConfig = {
 				pathname: "/uploads/**",
 			},
 		],
+		domains: ["res.cloudinary.com"],
 	},
 };
 
