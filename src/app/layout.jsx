@@ -8,9 +8,6 @@ import { useEffect } from "react";
 const cinzel = Cinzel({ subsets: ["latin"] });
 
 export default function RootLayout({ children }) {
-	useEffect(() => {
-		require("bootstrap/dist/js/bootstrap.bundle.min.js");
-	}, []);
 	return (
 		<html lang="en" className={cinzel.className}>
 			<body className="container mx-auto bg-black text-amber-400">
