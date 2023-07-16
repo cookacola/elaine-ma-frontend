@@ -4,7 +4,6 @@ import "../../dist/output.css";
 import { Cinzel } from "next/font/google";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { useEffect } from "react";
 const cinzel = Cinzel({ subsets: ["latin"] });
 
 export default function RootLayout({ children }) {
