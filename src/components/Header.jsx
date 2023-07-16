@@ -1,27 +1,17 @@
 "use client";
 import Link from "next/link";
 import Hamburger from "../assets/icons/Hamburger";
-import React, { use, useState } from "react";
-
-async function getNavLinks() {
-	const res = await fetch(
-		process.env.NEXT_PUBLIC_API + "/header?populate=deep",
-		{ next: { revalidate: 60 } }
-	);
-	return await res.json();
-}
+import React, { useState } from "react";
 
 const Header = () => {
 	const [expanded, setExpanded] = useState(false);
+
 	const handleExpand = () => {
 		setExpanded(!expanded);
 	};
 
-	const navLinkData = use(getNavLinks());
-	const navLinks = navLinkData.data.attributes.navLink;
-
 	return (
-		<header className="container sticky top-0 z-50 px-4 py-4 mx-auto bg-black border-b md:px-10 bg-opacity-60 border-amber-500">
+		<header className="sticky top-0 z-50 px-4 py-4 mx-auto bg-black border-b-2 border-amber-500 md:px-10 bg-opacity-60">
 			<nav
 				className="relative justify-between align-middle md:flex"
 				aria-label="header-nav"
@@ -36,17 +26,20 @@ const Header = () => {
 							: "hidden space-x-8 md:flex "
 					}`}
 				>
-					{navLinks.map((navLink) => (
-						<Link
-							href={navLink.link}
-							key={navLink.id}
-							className="delay-75 hover:text-amber-500"
-						>
-							{navLink.title}
-						</Link>
-					))}
+					<Link href="/" className="delay-75 hover:text-amber-500">
+						Home
+					</Link>
+					<Link href="/about" className="delay-75 hover:text-amber-500">
+						About
+					</Link>
+					<Link href="/gallery" className="delay-75 hover:text-amber-500">
+						Gallery
+					</Link>
+					<Link href="/contact" className="delay-75 hover:text-amber-500">
+						Contact
+					</Link>
 				</div>
-				<div className="absolute top-0 right-0">
+				<div className="absolute top-0 right-0 z-50">
 					<Hamburger onClick={handleExpand} />
 				</div>
 			</nav>
